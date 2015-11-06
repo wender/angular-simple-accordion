@@ -5,7 +5,7 @@
 Way simple Angular directive to turn any serial elements into an accordion, such as UL > LI
 ## Example: 
 ```HTML
-ul class="accordion" simple-accordion>
+<ul class="accordion" simple-accordion>
                 <li>
                     <h2>Title test one</h2>
                     <p>
