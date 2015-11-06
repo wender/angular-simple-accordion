@@ -1,0 +1,26 @@
+{
+  "name": "angular-simple-accordion",
+  "version": "0.0.1",
+  "main": "./src/angular-simple-accordion.js",
+  "dependencies": {
+    "angular": "^1.4.7"
+  },
+  "homepage": "https://github.com/wender/angular-simple-accordion",
+  "authors": [
+    "Wender Lima <wender.lima@gmail.com>"
+  ],
+  "description": "Way simple Angular directive to turn any serial elements into an accordion, such as UL > LI",
+  "keywords": [
+    "AngularJS",
+    "Accordion",
+    "Directive"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
