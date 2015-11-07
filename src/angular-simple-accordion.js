@@ -17,8 +17,8 @@ angular.module('simple-accordion', [])
             },
             link: function(scope, el, attrs) {
                 var itemSelector = attrs.itemSelector || 'li',
-                    titleSelector = attrs.itemSelector || 'h2',
-                    contentSelector = attrs.itemSelector || 'p';
+                    titleSelector = attrs.titleSelector || 'h2',
+                    contentSelector = attrs.contentSelector || 'p';
 
                 var items = el[0].querySelectorAll(itemSelector);
                 for (var i in items) {

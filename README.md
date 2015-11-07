@@ -6,6 +6,15 @@ Way simple Angular directive to turn any serial elements into an accordion, such
 
 [DEMO](http://wender.github.io/angular-simple-accordion/)
 
+## Attributes
+
+|Attribute|Required|Default|Description|
+|---------|:-------|:------|:----------|
+|simple-accordion|true|N/A|Directive|
+|item-selector|false|li|Used to tell what element the item is|
+|title-selector|false|h2|Used to tell what element the title is|
+|content-selector|false|p|Used to tell what element the content is|
+
 ## Example: 
 ```HTML
 <ul class="accordion" simple-accordion>
@@ -28,8 +37,62 @@ Way simple Angular directive to turn any serial elements into an accordion, such
                     </p>
                 </li>
             </ul>
+
+
+	<style>
+	.accordion {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .accordion .item .title {
+        margin: 0;
+        padding: 10px;
+        background-color: #009688;
+        border-bottom: 3px solid #CDDC39;
+        color: #fff;
+        font-weight: 100;
+        position: relative;
+        cursor: pointer;
+    }
+    
+    .accordion .item .title:after {
+        content: '\f078';
+        font-family: 'FontAwesome';
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        transition: all 0.5s ease;
+    }
+    
+    .accordion .item.open .title:after {
+        transform: rotate(180deg);
+    }
+    
+    .accordion .item .content {
+        padding: 0;
+        margin: 0;
+        background-color: #CDDC39;
+        transition: all 0.5s ease;
+        overflow: hidden;
+    }
+    
+    .accordion .item.open .content {
+        height: auto;
+    }
+    </style>
+
+    <script type="text/javascript">
+    var app = angular.module('myApp', ['simple-accordion']);
+    app.controller('MainCtrl', function($scope) {
+
+    });
+    </script>
 ```
 
+**IMPORTANT!**
+ 
+*Without CSS you'll not achieve what you're expecting*
 
 #### Install via bower
 
