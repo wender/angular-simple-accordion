@@ -10,7 +10,7 @@ Way simple Angular directive to turn any serial elements into an accordion, such
 
 |Attribute|Required|Default|Description|
 |---------|:-------|:------|:----------|
-|simple-accordion|true|N/A|Directive|
+|simple-accordion|true|N/A|Directive, it can be a either a Class or Attribute|
 |item-selector|false|li|Used to tell what element the item is|
 |title-selector|false|h2|Used to tell what element the title is|
 |content-selector|false|p|Used to tell what element the content is|

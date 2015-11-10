@@ -3,7 +3,7 @@
 angular.module('simple-accordion', [])
     .directive('simpleAccordion', function($compile) {
         return {
-            restrict: 'A',
+            restrict: 'AC',
             controller: function($scope, $element) {
                 $scope.current = null;
                 $scope.height = [];
