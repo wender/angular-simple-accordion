@@ -3,7 +3,7 @@
 angular.module('simple-accordion', [])
     .directive('simpleAccordion', function($compile) {
         return {
-            restrict: 'AC',
+            restrict: 'AEC',
             controller: function($scope, $element) {
                 $scope.current = null;
                 $scope.height = [];
@@ -13,7 +13,6 @@ angular.module('simple-accordion', [])
                 $scope.toggle = function(i) {
                     $scope.current = $scope.current === i ? null : i;
                 };
-                $scope.teste = 'lalala';
             },
             link: function(scope, el, attrs) {
                 var itemSelector = attrs.itemSelector || 'li',
