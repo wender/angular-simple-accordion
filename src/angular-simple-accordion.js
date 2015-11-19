@@ -7,11 +7,13 @@ angular.module('simple-accordion', [])
             controller: function($scope) {
                 $scope.current = null;
                 $scope.height = [];
+                $scope.items = [];
                 $scope.zero = {
                     height: 0
                 };
                 $scope.toggle = function(i) {
                     $scope.current = $scope.current === i ? null : i;
+                    $scope.height[i] = {'height':$scope.items[i].querySelectorAll('.inner-content')[0].offsetHeight + 'px'};
                 };
             },
             link: function(scope, el, attrs) {
@@ -20,12 +22,16 @@ angular.module('simple-accordion', [])
                   contentSelector = attrs.contentSelector || 'p';
               $timeout(function(){
                 var items = el[0].querySelectorAll(itemSelector);
+                scope.items = items;
+
                 for (var i in items) {
                   if (angular.isObject(items[i])) {
                     var title = items[i].querySelectorAll(titleSelector)[0];
                     var content = items[i].querySelectorAll(contentSelector)[0];
+                    var html = angular.element(content).html();
+                        angular.element(content).html('').prepend('<div class="inner-content">'+html+'</div>');
                     scope.height.push({
-                      'height': (content.offsetHeight + 10) + 'px'
+                      'height': 0
                     });
                     angular.element(items[i]).addClass('item').attr({
                       'ng-class': '{\'open\':current == ' + i + '}'
@@ -33,12 +39,11 @@ angular.module('simple-accordion', [])
                     angular.element(title).addClass('title').attr('ng-click', 'toggle(' + i + ')');
                     angular.element(content).addClass('content').attr({
                       'ng-style': 'current == ' + i + '?height[' + i + ']:zero'
-                    });;
-
+                    });
                   }
                 }
                 $compile(angular.element(el).contents())(scope);
-              });
+              },500);
             }
         }
     });
